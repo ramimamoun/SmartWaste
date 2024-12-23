@@ -1,0 +1,13 @@
+<!-- data_analysis/templates/data_analysis/complaints_list.html -->
+
+<h1>Complaints List</h1>
+
+{% if complaints %}
+<ul>
+    {% for complaint in complaints %}
+    <li>{{ complaint.location }} - {{ complaint.complaint_type }}: {{ complaint.description }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No complaints available.</p>
+{% endif %}

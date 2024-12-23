@@ -1,0 +1,25 @@
+<!-- في templates/complaints.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaints List</title>
+</head>
+<body>
+<h1>Complaints</h1>
+<table>
+    <tr>
+        <th>Location</th>
+        <th>Complaint Type</th>
+        <th>Description</th>
+    </tr>
+    {% for complaint in complaints %}
+    <tr>
+        <td>{{ complaint.location }}</td>
+        <td>{{ complaint.complaint_type }}</td>
+        <td>{{ complaint.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

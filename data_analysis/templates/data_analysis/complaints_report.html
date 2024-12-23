@@ -1,0 +1,31 @@
+<!-- data_analysis/complaints_report.html -->
+<h2>Complaints Report</h2>
+<p><a href="{% url 'complaints_report_csv' %}">Download CSV Report</a></p>
+<p><a href="{% url 'complaints_report_excel' %}">Download Excel Report</a></p>
+
+<p>Total Complaints: {{ total_complaints }}</p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Location</th>
+        <th>Complaint Type</th>
+        <th>Description</th>
+        <th>Created At</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for complaint in complaints %}
+    <tr>
+        <td>{{ complaint.location }}</td>
+        <td>{{ complaint.complaint_type }}</td>
+        <td>{{ complaint.description }}</td>
+        <td>{{ complaint.created_at }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No complaints available.</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
